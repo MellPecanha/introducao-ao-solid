@@ -1,13 +1,21 @@
-import { Request, Response } from "express";
+import {Request, Response} from 'express';
 
-import { ShowUserProfileUseCase } from "./ShowUserProfileUseCase";
+import {ShowUserProfileUseCase} from './ShowUserProfileUseCase';
 
 class ShowUserProfileController {
   constructor(private showUserProfileUseCase: ShowUserProfileUseCase) {}
 
-  handle(request: Request, response: Response): Response {
-    // Complete aqui
+  handle(req: Request, res: Response): Response {
+    try {
+      const {user_id} = req.params;
+
+      const user = this.showUserProfileUseCase.execute({user_id});
+
+      return res.send(user);
+    } catch (e) {
+      return res.status(404).json({error: e.message});
+    }
   }
 }
 
-export { ShowUserProfileController };
+export {ShowUserProfileController};
