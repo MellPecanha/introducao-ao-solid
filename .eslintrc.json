@@ -58,9 +58,10 @@
       { "devDependencies": ["**/*.spec.ts"] }
     ],
     "prettier/prettier": ["error", {"singleQuote": true, "bracketSpacing": false}],
-        "object-curly-spacing": ["error", "never"],
-        "array-bracket-spacing": ["error", "never"],
-        "no-use-before-define": "off"
+    "object-curly-spacing": ["error", "never"],
+    "array-bracket-spacing": ["error", "never"],
+    "no-use-before-define": "off",
+    "consistent-return": "off" 
   },
   "settings": {
     "import/resolver": {
